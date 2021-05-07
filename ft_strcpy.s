@@ -2,17 +2,22 @@ global _ft_strcpy
 
 section .text
 
+;rdi = dest		rsi = src
+
+
 _ft_strcpy:
-		mov		rax, -1
+		xor		rcx, rcx
 		jmp		loop
 
 loop:
-		inc		rax
-		mov		bl, BYTE rdi[rax]
-		mov		BYTE rsi[rax], bl
-		cmp		BYTE rdi[rax], 0
+		mov		bl, BYTE [rsi + rcx]
+		mov		BYTE [rdi + rcx], bl
+		cmp		bl, 0
 		je		finish
+		inc		rcx
 		jmp		loop
 
 finish:
+		mov		BYTE [rdi + rcx], 0
+		mov		rax, rdi
 		ret
