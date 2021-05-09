@@ -1,0 +1,6 @@
+This book is an introduction to assembly language programming for the x86-64 architecture of CPUs like the Intel Core processors and the AMD Athlon and Opteron processors.
+While assembly language is no longer widely used in general purpose programming,
+it is still used to produce maximum efficiency in core functions in scientific computing and in other applications where maximum efficiency is needed.
+It is also used to per­ form some functions which cannot be handled in a high-level language.
+The goal of this book is to teach general principles of assembly lan­ guage programming.
+It targets people with some experience in program­ ming in a high level language (ideally C or C++), but with no prior exposure to assembly language.

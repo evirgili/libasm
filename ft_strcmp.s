@@ -2,23 +2,28 @@ global _ft_strcmp
 
 section .text
 
+;rdi = s1   rsi = s2
+
 _ft_strcmp:
+		mov		rcx, 0					;rcx = 0
 		xor		rax, rax
-		xor		rcx, rсx
-		jmp		loop
+		jmp		loop					;go while
 
 loop:
-		mov		dl, BYTE [rdi + rcx]
-		cmp		dl, 0
-		je		finish
-		cmp		BYTE [rsi + rcx], 0
-		je		finish
-		cmp		dl, BYTE [rsi + rcx]
-		jne		finish
-		inc		rcx
-		jmp		loop
+		cmp		BYTE [rdi + rcx], 0					;if al = 0
+		je		finish					;return
+		cmp		BYTE [rsi + rcx], 0		;if s2[i] = 0
+		je		finish					;return
+		mov		al, BYTE [rdi + rcx]	;al = s1[i]
+		cmp		al, BYTE [rsi + rcx]	;if dl != s2
+		jne		finish					;return
+		inc		rcx						;rsx++
+		jmp		loop					;go while
 
 
 
 finish:
+		mov		al, BYTE [rdi + rcx]
+		mov		dl, byte[rsi + rcx]
+		sub		rax, rdx					;s1 = s1 - s2
 		ret
